@@ -1,0 +1,32 @@
+<!DOCTYPE html>
+<html th="en" xmlns:th="http://www.thymeLeaf.org"
+	th:replace="base::Layout(~{::section})">
+<head>
+<meta charset="ISO-8859-1">
+<title>Add Car</title>
+</head>
+<body>
+	<section>
+
+		<div class="container">
+			<h3>Add a new Car</h3>
+			<form th:action="@{/admin/addcar}" method="post" th:object="${car}"
+				enctype="multipart/form-data">
+				<div class="container">
+					<div class="row">
+						<label>Car Name</label> <input type="text"
+							class="form-control" required name="Model_Name"
+							id="Model_Name" placeholder="Car Name">
+					</div>
+					<br>
+					<div class="row">
+						<label>Price Per Km</label> <input type="text"
+							class="form-control" required name="Price_Per_Km"
+							id="Price_Per_Km" placeholder="Price">
+					</div>
+				</div>
+			</form>
+		</div>
+	</section>
+</body>
+</html>

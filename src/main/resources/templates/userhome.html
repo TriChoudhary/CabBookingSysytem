@@ -1,0 +1,102 @@
+<!DOCTYPE html>
+<html lang="en" xmlns:th="http://www.thymeleaf.org">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Car avialable</title>
+    <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.5.2/css/bootstrap.min.css">
+    <style>
+        .floating-btn {
+            position: fixed;
+            left: 90%;
+            bottom: 10%;
+            z-index: 9999;
+            width: 120px;
+            height: 40px;
+        }
+        .floating-input {
+            position: fixed;
+            left: 90%;
+            bottom: 18%;
+            z-index: 9999;
+            width: 120px;
+            height: 40px;
+            border-radius: 5px;
+            border: 1px solid #ced4da;
+            background-color: white;
+            padding: 5px 10px;
+            box-shadow: 0px 4px 6px rgba(0, 0, 0, 0.1);
+        }
+    </style>
+    <style>
+  /* CSS styles for setting background image */
+  body {
+    background-image: url('https://www.rentallscript.com/resources/content/images/size/w692/2021/10/Online-Car-Reservation-System.png'); /* Replace 'background-image.jpg' with the path to your image */
+    background-size: cover; /* This ensures that the image covers the entire background */
+    background-repeat: no-repeat; /* Prevents the image from repeating */
+    background-attachment: fixed; /* Fixes the background image in place */
+  }
+</style>
+</head>
+<body>
+    <nav class="navbar navbar-expand-lg navbar-light bg-light">
+        <div class="container-fluid">
+            <a class="navbar-brand" href="/">Cab-Booking</a>
+            <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarSupportedContent" aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation">
+                <span class="navbar-toggler-icon"></span>
+            </button>
+            <div class="collapse navbar-collapse" id="navbarSupportedContent">
+                <ul class="navbar-nav me-auto mb-2 mb-lg-0">
+                    <li class="nav-item">
+                        <a class="nav-link" href="/login">Log Out</a>
+                    </li>
+                </ul>
+            </div>
+        </div>
+    </nav>
+
+    <section>
+        <h2 th:text="${username}"></h2>
+        <div class="container p-5">
+            <div class="row">
+                <div class="col-md-8 offset-md-2">
+                    <div class="card">
+                        <div class="card-header text-center fs-4"><strong>Available Cars</strong></div>
+                        <form action="">
+                            <div class="col-sm-12">
+                                <div class="card" style="margin-top: 20px" th:each="Car : ${cars}">
+                                    <div class="row no-gutters align-items-center">
+                                        <div class="col-sm-3">
+                                            <img class="" height="150px" width="150px" src="https://media.istockphoto.com/id/1448903246/photo/miniature-model-of-yellow-new-york-taxi-on-dark-night-background-black-and-white-image.jpg?s=2048x2048&w=is&k=20&c=dAb90Zf_WGaJaAWZwwP6Ddyd-i9bltUA1Eh9Q9XqjrE="
+                                                th:alt="${Car.Model_Name}">
+                                        </div>
+                                        <div class="col-sm-6">
+                                            <div class="d-flex flex-column p-2">
+                                                <div th:text="${Car.Model_Name}"></div>
+                                                <div th:text="${Car.Price_Per_Km}"></div>
+                                                <div>₹ / Day</div>
+                                            </div>
+                                        </div>
+                                        <div class="col-sm-3 d-flex justify-content-center align-items-center">
+                                            <div class="form-check">
+                                                <input class="form-check-input" type="radio" name="carSelection" id="carSelection">
+                                                <label class="form-check-label" for="carSelection">Select</label>
+                                            </div>
+                                        </div>
+                                    </div>
+                                </div>
+                            </div>
+                        </form>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Floating Button -->
+    <a href="" th:href="@{/postlogin/status}" class="btn btn-primary floating-btn">Proceed</a>
+
+    <!-- Floating Input Field -->
+    <input type="number" class="floating-input" placeholder="Enter Days">
+</body>
+</html>
